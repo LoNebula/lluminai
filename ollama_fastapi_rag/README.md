@@ -33,7 +33,7 @@
 
 ### 🔍 3. 質問応答（RAG）
 - ユーザー質問を Embedding し類似文脈を検索
-- llama3 が文脈ベースで自然文回答
+- gpt-oss が文脈ベースで自然文回答
 
 ### 🌐 4. Web UI による一貫操作
 - 画像アップロード
@@ -49,7 +49,7 @@
 | 項目 | 内容 |
 |------|------|
 | **VLM** | `llava:13b`（Ollama） |
-| **LLM** | `llama3`（Ollama） |
+| **LLM** | `gpt-oss:20b`（Ollama） |
 | **Embedding** | `BAAI/bge-m3` |
 | **DB** | ChromaDB |
 | **Backend** | FastAPI |
@@ -95,7 +95,7 @@ pip install fastapi uvicorn requests python-multipart chromadb sentence-transfor
 
 ```bash
 ollama pull llava:13b
-ollama pull llama3
+ollama pull gpt-oss:20b
 ```
 
 ---
@@ -141,7 +141,7 @@ http://127.0.0.1:8000
 * Markdown チャンク分割
 * bge-m3 Embedding
 * ChromaDB 登録・検索
-* llama3 で QA
+* gpt-oss:20b で QA
 
 ## `app_full.py`
 
@@ -158,27 +158,6 @@ Web UI
 * Markdown 表示
 * 質問フォーム
 * 回答＋引用文脈を表示
-
----
-
-# 🔬 背景技術
-
-### LLaVA
-
-視覚情報（CLIP）＋ LLM による画像→テキスト変換。
-Markdown 生成に非常に強い。
-
-### bge-m3
-
-2024年以降 RAG のデファクト Embedding モデル。
-
-### ChromaDB
-
-ローカルファイルだけで動く高速ベクトルDB。
-
-### FastAPI
-
-非同期処理・API構築に最適。UI 連携も容易。
 
 ---
 
