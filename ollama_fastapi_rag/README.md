@@ -42,6 +42,17 @@
 - 質問入力
 - 回答＋参照チャンク表示
 
+### アーキテクチャ設計
+
+```mermaid
+graph TD
+    Browser -- 画像アップロード --> FastAPI
+    FastAPI -- LLaVA推論(Ollama) --> Markdown構造テキスト
+    Markdown構造テキスト -- Markdownチャンク分割>bge-m3 embedding>ChromaDBへ保存 --> 検索可能なナレッジベース
+    検索可能なナレッジベース -- 質問(Web UI) --> FastAPI
+    FastAPI -- gpt-ossで回答生成 --> WebUIに回答表示
+```
+
 ---
 
 # ⚙️ 使用環境（Environment）
