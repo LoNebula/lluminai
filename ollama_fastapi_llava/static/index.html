@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>VLM ドキュメント解析ビューア</title>
+  <style>
+    body {
+      font-family: system-ui;
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .preview {
+      max-width: 100%;
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
+    pre {
+      white-space: pre-wrap;
+      background: #f2f2f2;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📄 VLM ドキュメント解析ビューア</h1>
+
+  <form id="form">
+    <input type="file" id="file" accept="image/*" required />
+    <button type="submit">解析する</button>
+  </form>
+
+  <img id="preview" class="preview" style="display:none;" />
+
+  <h2>出力 Markdown</h2>
+  <button id="copy">コピー</button>
+  <pre id="output"></pre>
+
+  <script>
+    const fileInput = document.getElementById("file");
+    const preview = document.getElementById("preview");
+    const output = document.getElementById("output");
+    const copyBtn = document.getElementById("copy");
+
+    fileInput.addEventListener("change", () => {
+      const file = fileInput.files[0];
+      preview.src = URL.createObjectURL(file);
+      preview.style.display = "block";
+    });
+
+    document.getElementById("form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fd = new FormData();
+      fd.append("file", fileInput.files[0]);
+
+      const res = await fetch("/api/analyze", { method: "POST", body: fd });
+      const data = await res.json();
+      output.textContent = data.markdown || "解析に失敗しました";
+    });
+
+    copyBtn.addEventListener("click", async () => {
+      await navigator.clipboard.writeText(output.textContent);
+      alert("コピーしました");
+    });
+  </script>
+</body>
+</html>
