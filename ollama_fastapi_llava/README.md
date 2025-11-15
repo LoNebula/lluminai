@@ -147,24 +147,6 @@ http://127.0.0.1:8000
 
 ---
 
-# 📄 ライセンス（License）
-
-MIT License
-
-※サンプル画像は **Pexels（[https://www.pexels.com/）](https://www.pexels.com/）)** から取得しています。
-
----
-
-# ✍️ 著者（Author）
-
-**宮脇 彰梧（Shogo Miyawaki）**
-
-* Lluminai / AIエンジニア
-* 大学院でマルチモーダルAI研究
-* RAG・エージェント・生成AI基盤のPoC開発
-
----
-
 # ⭐ もし役に立ったら
 
 ぜひ GitHub のスター 🌟 をお願いします！
