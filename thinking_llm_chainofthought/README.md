@@ -26,22 +26,10 @@ CoTを盲信せず、
 
 * **Python 3.9+**
 * **Ollama**（ローカル推論環境）
-* **llama3.1:8b**（推奨・任意で差し替え可）
+* **llama3.2**（推奨・任意で差し替え可）
 
 インストール：
 [https://ollama.ai](https://ollama.ai)
-
----
-
-## 📦 セットアップ
-
-```bash
-git clone https://github.com/<yourname>/cot-benchmark.git
-cd cot-benchmark
-pip install -r requirements.txt
-```
-
-※ 必要ライブラリ（requests など）は標準環境でも動きます。
 
 ---
 
@@ -140,31 +128,3 @@ MODEL = "llama3.1:8b"
 特に **Small LLM × 長いCoTの相性問題** を体感するのに最適です。
 
 ---
-
-## 📚 関連研究（記事で解説）
-
-このツールは、以下の研究成果を再現・検証するために作られています：
-
-* **Understanding CoT Length**（2025）
-* **C3oT: Shorter CoT Without Sacrificing Performance**（AAAI 2025）
-* **Long CoT for Small LLMs**（EMNLP 2025）
-* **Reasoning Models Don't Always Say What They Think**（Anthropic 2025）
-* **Chain-of-Thoughtlessness（NeurIPS 2024）**
-
----
-
-## 🧠 何がわかるのか？
-
-実験すると、次のような傾向が観察できます：
-
-* 長いCoTは算術には効くが、論理や日付では逆効果になることがある
-* Small LLM ほど **情報過多でCoTがノイズ化** しやすい
-* short CoT はコストと精度のバランスが良い
-* CoT を使う＝「賢くなる」ではない
-* 推論モードを **ケースごとに切り替えるのが最適**
-
----
-
-## 📄 ライセンス
-
-MIT License
