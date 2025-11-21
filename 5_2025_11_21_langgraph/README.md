@@ -43,7 +43,7 @@ CLI で Notion DB のページ一覧を表示し、
 
 main.py        # Bot の全処理（CLI / LangGraph / Notion API）
 
-````
+```
 
 ---
 
@@ -54,15 +54,9 @@ main.py        # Bot の全処理（CLI / LangGraph / Notion API）
 ```bash
 git clone https://github.com/<your-name>/<repo>.git
 cd <repo>
-````
-
-## 2. 必要ライブラリのインストール
-
-```bash
-pip install -r requirements.txt
 ```
 
-または手動で：
+## 2. 必要ライブラリのインストール
 
 ```bash
 pip install langgraph langchain-openai fastapi uvicorn python-dotenv requests
