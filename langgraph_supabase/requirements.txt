@@ -1,0 +1,5 @@
+ollama
+supabase
+langgraph
+numpy
+python-dotenv
