@@ -1,8 +1,3 @@
-以下は、あなたのブログ内容（）と `main.py` のコード（）を元に作成した、
-**GitHub リポジトリ用 README.md（完成版）** です。
-
----
-
 # 📁 Gemini File Search Tool — PDF Summarization Demo
 
 このリポジトリは、**Google Gemini API の File Search Tool** を使って
@@ -79,65 +74,3 @@ python main.py
 2. アップロードされたファイル URI を取得
 3. `generate_content()` に PDF URI を渡し、モデルへ質問
 4. モデルが PDF 内を検索し、引用メタデータ付きで回答
-
----
-
-## 📘 main.py（再掲）
-
-```python
-from google import genai
-from google.genai import types
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-api_key = os.getenv("GOOGLE_API_KEY")
-
-client = genai.Client(api_key=api_key)
-
-# PDF をアップロード
-uploaded_file = client.files.upload(
-    file="2511.14383v1.pdf",
-    config=types.UploadFileConfig(display_name="miyawaki_paper"),
-)
-
-print("Uploaded URI:", uploaded_file.uri)
-
-# PDF を参照して質問
-response = client.models.generate_content(
-    model="gemini-2.0-flash-thinking-exp-01-21",
-    contents=[
-        "この論文を日本語で要約してください。",
-        types.Part.from_uri(
-            file_uri=uploaded_file.uri,
-            mime_type="application/pdf",
-        ),
-    ],
-)
-
-print(response.text)
-```
-
----
-
-## 📝 サンプル出力
-
-実行すると以下のように「引用つき回答」が返ってきます：
-
-* どのページを参照したか
-* どの内容が根拠か
-
-Google Gemini による **Grounded Response** が利用可能です。
-
----
-
-## 🎯 何に使えるか？
-
-* PDF の要点抽出
-* 契約書レビュー
-* マニュアル検索エージェント
-* 学術論文の比較・整理
-* 社内文書の軽量 RAG 代替
-
-「PDF を置くだけで AI が検索×推論×引用してくれる」
-というワークフローが簡単に試せます。
