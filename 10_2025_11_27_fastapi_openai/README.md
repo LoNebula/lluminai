@@ -41,7 +41,7 @@ B --> F[logs.db];
 F --> G[LGBM Trainer --train];
 G --> H[router_model.pkl];
 H --> D;
-````
+```
 
 ---
 
@@ -57,12 +57,6 @@ H --> D;
 * requests
 * streamlit
 * openai
-
-```bash
-pip install -r requirements.txt
-```
-
-（必要なら requirements.txt を生成可能）
 
 ---
 
@@ -206,16 +200,3 @@ best_model → best_model_encoded
   （正常動作、気にしなくてOK）
 * SQLite は絶対パス指定で確実に動くように設定済み
 * router_model.pkl は joblib で保存されます
-
----
-
-# 📈 Future Improvements
-
-* 特徴量の追加（embedding / complexity / token ratio）
-* Multi-Provider Routing
-
-  * OpenAI, Anthropic, Google Gemini を統合
-* 強化学習によるコスト最適化ルーター
-* SHAP による判断根拠の可視化
-* バッチ学習 + モデル更新スケジューラ
-
