@@ -13,6 +13,7 @@ import uvicorn
 import dotenv
 from sklearn.preprocessing import LabelEncoder
 
+
 dotenv.load_dotenv()
 
 ###############################################################
