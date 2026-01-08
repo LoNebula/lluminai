@@ -1,4 +1,4 @@
-# 🕸️ Mini-GraphRAG Implementation (Zenn Article Sample)
+# 🕸️ Mini-GraphRAG Implementation
 
 Microsoft Researchが提唱した **GraphRAG (Retrieval-Augmented Generation with Graphs)** のコアロジック（抽出・グラフ構築・コミュニティ検出・要約）を、公式ライブラリを使わずに `LangChain` + `NetworkX` でミニマムに実装・解説しています。
 
