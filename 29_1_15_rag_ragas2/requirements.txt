@@ -1,0 +1,9 @@
+ragas
+langchain
+langchain-community
+langchain-openai
+faiss-cpu
+pandas
+numpy
+datasets
+python-dotenv
